@@ -1,0 +1,13 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+<s:Header>
+<Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/IHTNG_AuthenticationService/ValidateUsername</Action>
+</s:Header>
+<s:Body>
+<ValidateUsername xmlns="http://tempuri.org/">
+<Request xmlns:d4p1="http://schemas.datacontract.org/2004/07/HTNG_Authentication" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<d4p1:Password>{{PASSWORD}}</d4p1:Password>
+<d4p1:Username>{{USER}}</d4p1:Username>
+</Request>
+</ValidateUsername>
+</s:Body>
+</s:Envelope>

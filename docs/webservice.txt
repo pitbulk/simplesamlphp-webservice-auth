@@ -1,0 +1,49 @@
+`webserviceauth:SOAP`
+=====================
+
+This is a authentication module for authenticating an user against a Webservice.
+
+
+Options
+-------
+
+`url`
+:   The url of the webservice.
+
+`authbasic.user`
+:   If the webservice is protected by Auth-Basic, set the username.
+
+`authbasic.password`
+:   If the webservice is protected by Auth-Basic, set the password.
+
+`template`
+:   The template file where we will introduce the login form crendentials (this file should exists in the 'templates' folder of the module)  {{USER}} and {{PASSWORD}} will be replaced in the template.
+
+`success_expr`
+:   This regular expression will be search in the webservice response in order to determine if the user was or not authenticated in the webservice
+
+`attrs_expr`
+:   In order to extract the attributes from the webservice response.
+
+`namespaces`
+:   If the webservice response has namespaces, define here.
+
+`idfield`
+:   The userid of the login form will be returned in the attributes array with this name. By default 'username'
+
+Examples
+--------
+
+    'webservice' => array(
+        'webserviceauth:SOAP',
+        'url' => 'http://example.com/ws',
+        'template' => 'request_by_username.xml',
+        'success_expr' => '<a:Success>true</a:Success>',
+        'attrs_expr' => array (
+            'allowoverride' => "a:AllowOverwrite",
+            'roles' => "a:Roles/a:Role",          // Example of nested values
+        ),
+        'namespaces' => array (
+            'a' => 'http://schemas.datacontract.org/2004/07/HTNG_Authentication',
+        ),
+    ),
