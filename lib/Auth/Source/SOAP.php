@@ -201,7 +201,6 @@ class sspmod_webserviceauth_Auth_Source_SOAP extends sspmod_core_Auth_UserPassBa
                 }
             } catch (Exception $e) {}
         }
-        print_r($attributes);exit();
 
         SimpleSAML_Logger::info('webserviceauth:' . $this->authId . ': Attributes: ' .
             implode(',', array_keys($attributes)));
